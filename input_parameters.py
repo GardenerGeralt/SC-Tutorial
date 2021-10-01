@@ -1,0 +1,16 @@
+P = 2.          # [W] transmitter power
+f_d = 2.5       # [GHz] downlink signal frequency
+L_l = 0.8       # [-] transmitter loss factor
+L_r = 0.8       # [-] receiver loss factor
+D_t = 0.5       # [m] s/c antenna diameter
+D_r = 10.       # [m] ground station antenna diameter
+eta = 0.55      # [-] antenna efficiency
+h = 570e3       # [m] s/c orbit altitude
+e_t_t = 0.25    # [deg] s/c pointing offset
+e_t_r = 0.00    # [...] ground station pointing offset
+R_G = 1e6       # [bps] s/c generated data rate
+D_C = 0.5       # [-] duty cycle
+T_DL = 2/24     # [-] downlink time ratio
+L_a = -0.5      # [dB] transmission path loss
+T_s = 135.      # [K] system noise temperature
+SNR_req = 10.   # [dB] required SNR
