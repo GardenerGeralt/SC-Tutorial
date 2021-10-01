@@ -1,5 +1,5 @@
 import math
-import input_parameters
+from input_parameters import P, L_l, L_a, L_r, T_s
 
 def SNR():
     k = 228.6       # Boltzmann constant
