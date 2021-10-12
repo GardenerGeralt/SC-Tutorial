@@ -4,7 +4,7 @@ import input_parameters as i
 
 def SNR(P, R, T_s, L_l, L_r, L_a, G_t, G_r, L_s, L_pr):
     k = 228.6       # Boltzmann constant
-    snr = P + L_l + G_t + L_a + G_r + L_s + L_pr + L_r + k - R - T_s
+    snr = P + L_l + G_t + L_a + G_r + L_s + L_pr + L_r + k - R - T_s    # [dB]
     return snr
 
 
