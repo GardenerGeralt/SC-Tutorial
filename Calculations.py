@@ -26,8 +26,7 @@ def dB(value, Xref=1):   # Convert any value to decibels
 def mid_calc(h, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculations
 
     # misc values:
-    R_E = 6371e3                            # [m] Earth's radius
-    S = sqrt((R_E + h) ** 2 - R_E ** 2)     # [m] max s/c <-> ground station distance
+    S = sqrt((i.RP + h) ** 2 - i.RP ** 2)   # [m] max s/c <-> ground station distance
     c = 3e8                                 # [m/s] speed of light
     wavelen = c / (f_d * 1e9)               # [m] signal wavelength
 
