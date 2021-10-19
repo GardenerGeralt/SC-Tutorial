@@ -2,6 +2,18 @@ from math import *
 import input_parameters as i
 
 
+def downR(bp, swa, h, psa):
+    ps = 2 * h * tan(radians(psa / 60) / 2)
+    RE = 6371e3                 # [m] Earth radius
+    ME = 5.972e24               # [kg] Earth mass
+    G = 6.674e-11               # [m3/kg/s2] gravitational constant
+    g = G * ME / ((RE + h) ** 2)
+    v = sqrt(g * (RE + h))      # [m/s]
+    sw = 2 * h * tan(radians(swa) / 2)
+    R_G = bp * sw * v / (ps ** 2)
+    return R_G
+
+
 def SNR(P, R, T_s, L_l, L_r, L_a, G_t, G_r, L_s, L_pr):
     k = 228.6       # Boltzmann constant
     snr = P + L_l + G_t + L_a + G_r + L_s + L_pr + L_r + k - R - T_s    # [dB]
@@ -42,9 +54,9 @@ def mid_calc(h, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculation
 
 def mrgn():
     nums = mid_calc(i.h, i.f, i.D_t, i.D_r, i.eta, i.e_t_t, i.e_t_r)      # perform intermediate calculations
-    R = i.R_G * i.D_C / i.T_DL
+    R_G = downR(i.bp, i.swa, i.h, i.psa)
+    R = R_G * i.D_C / i.T_DL
     snr_rec = SNR(dB(i.P), dB(R), dB(i.T_s), dB(i.L_l), dB(i.L_r), i.L_a,
                   nums[0], nums[1], nums[2], nums[3])
-    print(f'The S/N received is {round(snr_rec, 2)}dB.')
     margin = snr_rec - i.snr_req
-    return margin
+    return snr_rec, margin
