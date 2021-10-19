@@ -9,10 +9,13 @@ def main():
     q = input("For power reply 'p', for receiving antenna diameter - 'dr', for transmitting antenna diameter - 'dt'\n"
               "for other - 'o': ")
     while True:
-        snr_rec, margin = round(mrgn()[0], 2), round(mrgn()[1], 2)
+        snr_rec, margin, tb = round(mrgn()[0], 2), round(mrgn()[1], 2), mrgn()[2]
         if margin >= 3:
             print(f'The S/N received is {round(snr_rec, 2)}dB.')
             print(f'The link margin is {margin}dB.')
+            tb = str(tb).split(",")
+            for n in range(len(tb)):
+                print(tb[n])
             break
         else:
             if q == "p":

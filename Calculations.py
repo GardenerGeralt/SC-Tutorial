@@ -54,9 +54,20 @@ def mid_calc(h, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculation
 
 def mrgn():
     nums = mid_calc(i.h, i.f, i.D_t, i.D_r, i.eta, i.e_t_t, i.e_t_r)      # perform intermediate calculations
-    R_G = downR(i.bp, i.swa, i.h, i.psa)
-    R = R_G * i.D_C / i.T_DL
+    R_G = downR(i.bp, i.swa, i.h, i.psa)        # [bps] generated data rate
+    R = R_G * i.D_C / i.T_DL                    # [bps] required data rate
     snr_rec = SNR(dB(i.P), dB(R), dB(i.T_s), dB(i.L_l), dB(i.L_r), i.L_a,
                   nums[0], nums[1], nums[2], nums[3])
     margin = snr_rec - i.snr_req
-    return snr_rec, margin
+    table = {"Transmitter Power": round(dB(i.P), 3),
+             "Transmitter loss factor": round(dB(i.L_l), 3),
+             "Receiver loss factor": round(dB(i.L_r), 3),
+             "Transmitting antenna gain": round(nums[0], 3),
+             "Receiving antenna gain": round(nums[1], 3),
+             "Transmission path loss": round(i.L_a, 3),
+             "Space loss": round(nums[2], 3),
+             "Total pointing loss": round(nums[3], 3),
+             "Required data rate": round(dB(R), 3),
+             "System noise temperature": round(dB(i.T_s), 3)
+             }
+    return snr_rec, margin, table
