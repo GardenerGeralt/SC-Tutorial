@@ -2,13 +2,11 @@ from math import *
 import input_parameters as i
 
 
-def downR(bp, swa, h, psa):
+def downR(bp, swa, h, psa, RP, MP):
     ps = 2 * h * tan(radians(psa / 60) / 2)
-    RE = 6371e3                 # [m] Earth radius
-    ME = 5.972e24               # [kg] Earth mass
     G = 6.674e-11               # [m3/kg/s2] gravitational constant
-    g = G * ME / ((RE + h) ** 2)
-    v = sqrt(g * (RE + h))      # [m/s]
+    g = G * MP / ((RP + h) ** 2)
+    v = sqrt(g * (RP + h))      # [m/s]
     sw = 2 * h * tan(radians(swa) / 2)
     R_G = bp * sw * v / (ps ** 2)
     return R_G
@@ -54,7 +52,7 @@ def mid_calc(h, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculation
 
 def mrgn():
     nums = mid_calc(i.h, i.f, i.D_t, i.D_r, i.eta, i.e_t_t, i.e_t_r)      # perform intermediate calculations
-    R_G = downR(i.bp, i.swa, i.h, i.psa)        # [bps] generated data rate
+    R_G = downR(i.bp, i.swa, i.h, i.psa, i.RP, i.MP)        # [bps] generated data rate
     R = R_G * i.D_C / i.T_DL                    # [bps] required data rate
     snr_rec = SNR(dB(i.P), dB(R), dB(i.T_s), dB(i.L_l), dB(i.L_r), i.L_a,
                   nums[0], nums[1], nums[2], nums[3])
