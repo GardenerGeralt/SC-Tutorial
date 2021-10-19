@@ -1,5 +1,11 @@
 # Run file for Link Budget Tool
 
-from Calculations import main
+from Calculations import mrgn
 
-print(main())
+
+def main():
+    print(f'The link margin is {round(mrgn(), 2)}dB.')
+
+
+if __name__ == '__main__':
+    main()
