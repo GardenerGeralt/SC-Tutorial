@@ -20,13 +20,13 @@ def main():
         else:
             if q == "p":
                 i.P += 1
-                print(f"The power is now {i.P} [W]")
+                print(f"The power is now {round(i.P, 1)} [W]")
             elif q == "dr":
                 i.D_r += 0.1
-                print(f"The D_r is now {i.D_r} [m]")
+                print(f"The D_r is now {round(i.D_r, 1)} [m]")
             elif q == "dt":
                 i.D_t += 0.1
-                print(f"The D_t is now {i.D_t} [m]")
+                print(f"The D_t is now {round(i.D_t, 1)} [m]")
             else:
                 break
 

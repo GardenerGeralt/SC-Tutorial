@@ -31,8 +31,8 @@ def mid_calc(h, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculation
     wavelen = c / (f_d * 1e9)               # [m] signal wavelength
 
     # gains:
-    G_t = 20 * log(D_t, 10) + 20 * log(f_d, 10) + 17.8      # [dB] transmitting antenna gain
-    G_r = dB(eta * (pi * D_r / wavelen) ** 2)               # [dB] receiving antenna gain
+    G_t = dB(eta * (pi * D_t / wavelen) ** 2)       # [dB] transmitting antenna gain
+    G_r = dB(eta * (pi * D_r / wavelen) ** 2)       # [dB] receiving antenna gain
 
     # half-power angles:
     hpa_t = 21 / (f_d * D_t)    # [deg] transmitting antenna half-power angle

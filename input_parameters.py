@@ -6,6 +6,7 @@ L_a = -3e-2     # [dB] transmission path loss
 D_t = 1.        # [m] transmitting antenna diameter
 D_r = 15.       # [m] receiving antenna diameter
 eta = 0.55      # [-] antenna efficiency
+
 h = 820e3       # [m] s/c orbit altitude
 e_t_t = 0.12    # [deg] transmitter pointing offset
 e_t_r = 0.1     # [hpa_r] receiver pointing offset as proportion of receiver half power angle
