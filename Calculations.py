@@ -38,6 +38,10 @@ def mid_calc(h, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculation
     hpa_t = 21 / (f_d * D_t)    # [deg] transmitting antenna half-power angle
     hpa_r = 21 / (f_d * D_r)    # [deg] receiving antenna half-power angle
     e_t_r = e_t_r * hpa_r       # [deg] ground station pointing offset
+    if i.ud == "u":
+        _ = i.e_t_t, i.e_t_r
+        i.e_t_r, i.e_t_t = _
+
 
     # losses:
     L_s = (wavelen / (4 * pi * S)) ** 2     # [-] space loss
@@ -53,6 +57,8 @@ def mrgn():
     nums = mid_calc(i.h, i.f, i.D_t, i.D_r, i.eta, i.e_t_t, i.e_t_r)      # perform intermediate calculations
     R_G = downR(i.bp, i.swa, i.h, i.psa, i.RP, i.MP)        # [bps] generated data rate
     R = R_G * i.D_C / i.T_DL                    # [bps] required data rate
+    if i.ud == "u":
+        R = i.R_U
     snr_rec = SNR(dB(i.P), dB(R), dB(i.T_s), dB(i.L_l), dB(i.L_r), i.L_a,
                   nums[0], nums[1], nums[2], nums[3])
     margin = snr_rec - i.snr_req

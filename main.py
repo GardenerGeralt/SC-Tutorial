@@ -5,6 +5,10 @@ import input_parameters as i
 
 
 def main():
+    i.ud = input("Uplink or Downlink? (u/d): ")
+    if i.ud == "u":
+        _ = i.e_t_t, i.e_t_r
+        i.e_t_r, i.e_t_t = _
     print("If link does not close, what would you like to change?")
     q = input("For power reply 'p', for receiving antenna diameter - 'dr', for transmitting antenna diameter - 'dt'\n"
               "for other - 'o': ")

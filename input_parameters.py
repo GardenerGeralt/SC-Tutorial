@@ -1,15 +1,15 @@
-P = 150.        # [W] transmitter power
-f = 2.2         # [GHz] signal frequency
-L_l = 0.8       # [-] transmitter loss factor
-L_r = 0.7       # [-] receiver loss factor
+P = 400.        # [W] transmitter power
+f = 2.2 * 221 / 240         # [GHz] signal frequency
+L_l = 0.7       # [-] transmitter loss factor
+L_r = 0.8       # [-] receiver loss factor
 L_a = -3e-2     # [dB] transmission path loss
-D_t = 1.        # [m] transmitting antenna diameter
-D_r = 15.       # [m] receiving antenna diameter
+D_t = 15.        # [m] transmitting antenna diameter
+D_r = 1.       # [m] receiving antenna diameter
 eta = 0.55      # [-] antenna efficiency
-
 h = 820e3       # [m] s/c orbit altitude
 e_t_t = 0.12    # [deg] transmitter pointing offset
 e_t_r = 0.1     # [hpa_r] receiver pointing offset as proportion of receiver half power angle
+R_U = 1e8       # [bps] required uplink data rate
 bp = 32         # [bit/p] payload bits per pixel
 swa = 45.       # [deg] swath width angle
 psa = 0.01      # [arcmin] pixel size angle
@@ -19,3 +19,5 @@ T_s = 135.      # [K] system noise temperature
 snr_req = 10.5  # [dB] required SNR
 RP = 6371e3     # [m] planet radius
 MP = 5.972e24   # [kg] planet mass
+# ignore this:
+ud = 0
