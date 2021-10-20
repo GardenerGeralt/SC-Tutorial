@@ -9,10 +9,12 @@ def main():
     if i.ud == "u":
         _ = i.e_t_t, i.e_t_r
         i.e_t_r, i.e_t_t = _
-    print("If link does not close, what would you like to change?")
-    q = input("For power reply 'p', for receiving antenna diameter - 'dr', for transmitting antenna diameter - 'dt'\n"
-              "for other - 'o': ")
+
     while True:
+        print("If link does not close, what would you like to change?")
+        q = input(
+            "For power reply 'p', for receiving antenna diameter - 'dr', for transmitting antenna diameter - 'dt'\n"
+            "for other - 'o': ")
         snr_rec, margin, tb = round(mrgn()[0], 2), round(mrgn()[1], 2), mrgn()[2]
         if margin >= 3:
             print(f'The S/N received is {round(snr_rec, 2)}dB.')
