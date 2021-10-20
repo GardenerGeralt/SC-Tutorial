@@ -1,12 +1,12 @@
-P = 100.        # [W] transmitter power
-f = 2.2         # [GHz] signal frequency
+P = 10.         # [W] transmitter power
+f = 8.4         # [GHz] signal frequency
 L_l = 0.8       # [-] transmitter loss factor
 L_r = 0.7       # [-] receiver loss factor
 L_a = -0.030    # [dB] transmission path loss
-D_t = 4.2       # [m] transmitting antenna diameter
-D_r = 15.       # [m] receiving antenna diameter
+D_t = 0.1       # [m] transmitting antenna diameter
+D_r = 35.       # [m] receiving antenna diameter
 eta = 0.55      # [-] antenna efficiency
-h = 399.9e6     # [m] s/c orbit altitude
+h = 1e6         # [m] s/c orbit altitude
 e_t_t = 0.1     # [deg] transmitter pointing offset
 e_t_r = 0.1     # [hpa_r] receiver pointing offset as proportion of receiver half power angle
 bp = 8          # [bit/p] payload bits per pixel
