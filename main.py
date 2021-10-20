@@ -5,6 +5,10 @@ import input_parameters as i
 
 
 def main():
+    i.ud = input("Uplink or Downlink? (u/d): ")
+    if i.ud == "u":
+        _ = i.e_t_t, i.e_t_r
+        i.e_t_r, i.e_t_t = _
     it = input("Iterate? (y/n) ")
     if it == "y":
         print("If link does not close, what would you like to change?")
