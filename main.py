@@ -37,6 +37,13 @@ def main():
                     print(f"The D_t is now {round(i.D_t, 1)} [m]")
                 else:
                     break
+    else:
+        snr_rec, margin, tb = round(mrgn()[0], 2), round(mrgn()[1], 2), mrgn()[2]
+        print(f'The S/N received is {round(snr_rec, 2)}dB.')
+        print(f'The link margin is {margin}dB.')
+        tb = str(tb).split(",")
+        for n in range(len(tb)):
+            print(tb[n])
 
 
 if __name__ == '__main__':
