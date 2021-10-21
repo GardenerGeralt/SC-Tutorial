@@ -2,13 +2,13 @@ from math import *
 import input_parameters as i
 
 
-def downR(bp, swa, h, psa, RP, MP):
-    ps = 2 * h * tan(radians(psa / 60) / 2)
-    G = 6.674e-11               # [m3/kg/s2] gravitational constant
-    g = G * MP / ((RP + h) ** 2)
-    v = sqrt(g * (RP + h))      # [m/s]
-    sw = 2 * h * tan(radians(swa) / 2)
-    R_G = bp * sw * v / (ps ** 2)
+def downR(bp, swa, h, psa, RP, MP):     # calculate generated data rate
+    ps = 2 * h * tan(radians(psa / 60) / 2)     # [m] pixel size
+    G = 6.674e-11       # [m3/kg/s2] gravitational constant
+    g = G * MP / ((RP + h) ** 2)    # [m/s^2] gravitational acceleration at orbit
+    v = sqrt(g * (RP + h))          # [m/s] orbit velocity, assuming a circular orbit
+    sw = 2 * h * tan(radians(swa) / 2)      # [m] swath width (field of view width
+    R_G = bp * sw * v / (ps ** 2)       # [bps] generated data rate
     return R_G
 
 
@@ -23,10 +23,10 @@ def dB(value, Xref=1):   # Convert any value to decibels
     return X
 
 
-def mid_calc(h, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculations
+def mid_calc(de, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculations
 
     # misc values:
-    S = sqrt((i.RP + h) ** 2 - i.RP ** 2)   # [m] max s/c <-> ground station distance
+    S = sqrt((i.RE + de) ** 2 - i.RE ** 2)   # [m] max s/c <-> ground station distance
     c = 3e8                                 # [m/s] speed of light
     wavelen = c / (f_d * 1e9)               # [m] signal wavelength
 
@@ -50,7 +50,7 @@ def mid_calc(h, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculation
 
 
 def mrgn():
-    nums = mid_calc(i.h, i.f, i.D_t, i.D_r, i.eta, i.e_t_t, i.e_t_r)      # perform intermediate calculations
+    nums = mid_calc(i.de, i.f, i.D_t, i.D_r, i.eta, i.e_t_t, i.e_t_r)      # perform intermediate calculations
     R_G = downR(i.bp, i.swa, i.h, i.psa, i.RP, i.MP)        # [bps] generated data rate
     R = R_G * i.D_C / i.T_DL                    # [bps] required data rate
     snr_rec = SNR(dB(i.P), dB(R), dB(i.T_s), dB(i.L_l), dB(i.L_r), i.L_a,

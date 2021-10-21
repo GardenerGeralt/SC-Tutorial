@@ -6,7 +6,8 @@ L_a = -0.030    # [dB] transmission path loss
 D_t = 4.2       # [m] transmitting antenna diameter
 D_r = 15.       # [m] receiving antenna diameter
 eta = 0.55      # [-] antenna efficiency
-h = 399.9e6     # [m] s/c orbit altitude
+de = 399.9e6    # [m] s/c distance to Earth
+h = 100e3       # [m] s/c orbit altitude
 e_t_t = 0.1     # [deg] transmitter pointing offset
 e_t_r = 0.1     # [hpa_r] receiver pointing offset as proportion of receiver half power angle
 bp = 8          # [bit/p] payload bits per pixel
@@ -18,5 +19,7 @@ T_s = 135.      # [K] system noise temperature
 snr_req = 10.5  # [dB] required SNR
 RP = 6371e3     # [m] planet radius
 MP = 5.972e24   # [kg] planet mass
+RE = 1736.5e3     # [m] Earth's radius
+ME = 7.348e22   # [kg] Earth's mass
 # ignore this:
 ud = 0
