@@ -1,10 +1,10 @@
-P = 10.        # [W] transmitter power
-f = 8.4         # [GHz] signal frequency
+P = 400.        # [W] transmitter power
+f = 8.4*749/880        # [GHz] signal frequency
 L_l = 0.8       # [-] transmitter loss factor
 L_r = 0.7       # [-] receiver loss factor
-L_a = -0.040    # [dB] transmission path loss
-D_t = 0.1       # [m] transmitting antenna diameter
-D_r = 35.       # [m] receiving antenna diameter
+L_a = -0.039    # [dB] transmission path loss
+D_t = 35       # [m] transmitting antenna diameter
+D_r = 0.1       # [m] receiving antenna diameter
 eta = 0.55      # [-] antenna efficiency
 de = 225e9    # [m] s/c distance to Earth
 h = 1000e3       # [m] s/c orbit altitude
