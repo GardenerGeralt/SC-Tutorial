@@ -38,6 +38,9 @@ def mid_calc(de, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculatio
     hpa_t = 21 / (f_d * D_t)    # [deg] transmitting antenna half-power angle
     hpa_r = 21 / (f_d * D_r)    # [deg] receiving antenna half-power angle
     e_t_r = e_t_r * hpa_r       # [deg] ground station pointing offset
+    if i.ud == "u":
+        _ = i.e_t_t, i.e_t_r
+        i.e_t_r, i.e_t_t = _
 
     # losses:
     L_s = (wavelen / (4 * pi * S)) ** 2     # [-] space loss
