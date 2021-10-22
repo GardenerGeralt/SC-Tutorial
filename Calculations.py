@@ -23,10 +23,10 @@ def dB(value, Xref=1):   # Convert any value to decibels
     return X
 
 
-def mid_calc(h, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculations
+def mid_calc(de, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculations
 
     # misc values:
-    S = sqrt((i.RP + h) ** 2 - i.RP ** 2)   # [m] max s/c <-> ground station distance
+    S = sqrt((i.RP + de) ** 2 - i.RP ** 2)   # [m] max s/c <-> ground station distance
     c = 3e8                                 # [m/s] speed of light
     wavelen = c / (f_d * 1e9)               # [m] signal wavelength
 
