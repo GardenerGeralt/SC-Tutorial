@@ -54,7 +54,7 @@ def mid_calc(de, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculatio
 
 
 def mrgn():
-    nums = mid_calc(i.h, i.f, i.D_t, i.D_r, i.eta, i.e_t_t, i.e_t_r)      # perform intermediate calculations
+    nums = mid_calc(i.de, i.f, i.D_t, i.D_r, i.eta, i.e_t_t, i.e_t_r)      # perform intermediate calculations
     R_G = downR(i.bp, i.swa, i.h, i.psa, i.RP, i.MP)        # [bps] generated data rate
     R = R_G * i.D_C / i.T_DL                    # [bps] required data rate
     if i.ud == "u":
