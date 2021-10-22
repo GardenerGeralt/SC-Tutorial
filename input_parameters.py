@@ -17,9 +17,9 @@ D_C = 1         # [-] duty cycle
 T_DL = 8/24     # [-] link time ratio
 T_s = 135.      # [K] system noise temperature
 snr_req = 10.5  # [dB] required SNR
-RP = 6371e3     # [m] planet radius
-MP = 5.972e24   # [kg] planet mass
-RE = 1736.5e3     # [m] Earth's radius
-ME = 7.348e22   # [kg] Earth's mass
+RP = 1736.5e3     # [m] planet radius
+MP = 7.348e22   # [kg] planet mass
+RE = 6371e3     # [m] Earth's radius
+ME = 5.972e24   # [kg] Earth's mass
 # ignore this:
 ud = 0
