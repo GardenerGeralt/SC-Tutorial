@@ -6,9 +6,6 @@ import input_parameters as i
 
 def main():
     i.ud = input("Uplink or Downlink? (u/d): ")
-    if i.ud == "u":
-        _ = i.e_t_t, i.e_t_r
-        i.e_t_r, i.e_t_t = _
 
     it = input("Iterate? (y/n) ")
     if it == "y":
@@ -38,7 +35,8 @@ def main():
                 else:
                     break
     else:
-        snr_rec, margin, tb = round(mrgn()[0], 2), round(mrgn()[1], 2), mrgn()[2]
+        out = mrgn()
+        snr_rec, margin, tb = round(out[0], 2), round(out[1], 2), out[2]
         print(f'The S/N received is {round(snr_rec, 2)}dB.')
         print(f'The link margin is {margin}dB.')
         tb = str(tb).strip("{}").split(",")

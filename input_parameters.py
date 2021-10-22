@@ -1,7 +1,7 @@
 P = 400.        # [W] transmitter power
 f = 8.4*749/880        # [GHz] signal frequency
-L_l = 0.7       # [-] transmitter loss factor
-L_r = 0.8       # [-] receiver loss factor
+L_l = 0.8       # [-] transmitter loss factor
+L_r = 0.7       # [-] receiver loss factor
 L_a = -0.039    # [dB] transmission path loss
 D_t = 35       # [m] transmitting antenna diameter
 D_r = 0.1       # [m] receiving antenna diameter
