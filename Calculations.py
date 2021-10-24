@@ -51,7 +51,8 @@ def mid_calc(de, f_d, D_t, D_r, eta, e_t_t, e_t_r):    # intermediate calculatio
 
 def mrgn():
     nums = mid_calc(i.de, i.f, i.D_t, i.D_r, i.eta, i.e_t_t, i.e_t_r)      # perform intermediate calculations
-    R_G = downR(i.bp, i.swa, i.h, i.psa, i.RP, i.MP)        # [bps] generated data rate
+    #R_G = downR(i.bp, i.swa, i.h, i.psa, i.RP, i.MP)        # [bps] generated data rate
+    R_G = 256000 # [bps]
     R = R_G * i.D_C / i.T_DL                    # [bps] required data rate
     snr_rec = SNR(dB(i.P), dB(R), dB(i.T_s), dB(i.L_l), dB(i.L_r), i.L_a,
                   nums[0], nums[1], nums[2], nums[3])
