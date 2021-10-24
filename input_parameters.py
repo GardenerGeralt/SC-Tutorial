@@ -1,5 +1,5 @@
 P = 150.        # [W] transmitter power
-f = 2.2         # [GHz] signal frequency
+f = 4.1         # [GHz] signal frequency
 L_l = 0.8       # [-] transmitter loss factor
 L_r = 0.7       # [-] receiver loss factor
 L_a = -3e-2     # [dB] transmission path loss
